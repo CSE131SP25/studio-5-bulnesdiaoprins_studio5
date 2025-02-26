@@ -1,7 +1,9 @@
 package studio5;
 
 import edu.princeton.cs.introcs.StdDraw;
-
+/**
+ * All Methods By BulnesDiaoPrins
+ */
 public class Methods {
 
 	/**
@@ -16,7 +18,7 @@ public class Methods {
 	public static double distanceBetween(double x1, double y1, double x2, double y2) {
 		double distance = 0;
 		// FIXME: Hint use Math methods (e.g. Math.sqrt) to compute the distance
-		
+		distance = Math.sqrt(Math.pow((x1-x2),2)+Math.pow((y1-y2),2));
 		return distance;
 	}
 
@@ -34,17 +36,20 @@ public class Methods {
 		// TODO: Draw the remaining rings of the bull's eye
 		// Blue ring with 3.0/4.0 the radius
 		// suggested rgb values: 0, 109, 219
-
+		StdDraw.setPenColor(0, 109, 219);
+		StdDraw.filledCircle(x, y, radius/4*3);
 		
 
 		// Red ring with 1.0/2.0 the radius
 		// suggested rgb values: 146, 0, 0
-
+		StdDraw.setPenColor(146, 0, 0);
+		StdDraw.filledCircle(x, y, radius/4*2);
 		
 
 		// Yellow ring with 1.0/4.0 the radius
 		// suggested rgb values: 255, 255, 109
-
+		StdDraw.setPenColor(255, 255, 109);
+		StdDraw.filledCircle(x, y, radius/4*1);
 		
 	}
 
@@ -75,7 +80,8 @@ public class Methods {
 	public static int arraySum(int[] values) {
 		int sum = 0;
 		// FIXME: Compute the sum of the values in an array
-		
+		for (int item: values)
+			sum += item;
 		return sum;
 	}
 
@@ -87,14 +93,25 @@ public class Methods {
 	 * @return and array of size that's filled with value
 	 */
 	public static int[] filledArray(int length, int value) {
-		int[] values = null; // FIXME: Create an array of the appropriate size
+		int[] values = new int[length]; // FIXME: Create an array of the appropriate size
 		// TODO: Finish this method
-
-		
-
+		for (int i = 0; i < values.length; i++) {
+			values[i] = value;
+		}
 		return values;
 	}
-
+/**
+ * compute the mean of values in an int array
+ * 
+ * @param values a Int array that contains the values to be summed
+ * @return a double that is the mean of all Int values in the array
+ */
+	public static double arrayMean(int[] values) {
+		double mean = 0;
+		for (int value: values)
+			 mean += ((double)value) /values.length;
+		return mean;
+	}
 	// TODO: Create an arrayMean method which accepts an int array of values parameter.
 	// TODO: Create a JavaDoc comment for the arrayMean method.
 
